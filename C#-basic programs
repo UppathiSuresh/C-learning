@@ -1,0 +1,70 @@
+//in this program is having first five programs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using a = System.Console; 
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+          //it is a factorial program
+            /*
+             
+             int c=1, b,f=1;
+            Console.WriteLine("enter the value of b");
+            b = int.Parse(Console.ReadLine());
+
+            while(c<=b)
+            {
+                f=f*c;
+                c++;
+            }
+            
+            a.WriteLine(f);
+            
+           //a.ReadLine();
+        
+        */
+
+            // this an even and odd number program
+
+          /*    
+            int a;
+            Console.WriteLine("entre the value of a");
+            a = int.Parse(Console.ReadLine());
+            //if((a&1)==0)   //without useing modules operator
+             if(a%2==0)      //whit using modules operator
+            {
+                Console.WriteLine("it is an even number");
+            }
+            else
+            {
+                Console.WriteLine("it is an odd number");
+            }
+           */
+
+            //this is an swaping program
+            int a, b,c;
+            Console.Write("entr the value of a   :");
+            a = int.Parse(Console.ReadLine());
+            Console.Write(" entr the value of b   :");
+            b = int.Parse(Console.ReadLine());
+            
+            //a = a + b;  \\this is not  useing theried variable
+            //b = a - b; 
+           //a = a - b;  
+            
+            c = a;  //it is using theried veriable
+            a = b;
+            b=c;
+            Console.Write("\n after swaping is :");
+            Console.Write(  a );
+            Console.WriteLine(       b  );
+     }
+    }
+}
