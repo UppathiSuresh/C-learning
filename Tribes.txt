@@ -1,0 +1,43 @@
+/*Enter your code here. Read input from STDIN. Print your output to STDOUT*/
+#include <iostream>
+using namespace std;
+const int N = 105;
+typedef long long LL;
+double dp[N][N][N];
+int r, s, p;
+int main()
+{
+	//Write code here	
+    cin>>r>>s>>p;
+    dp[r][s][p] = 1;
+    for(int i = r; i >= 1; i--) {
+        for(int j = s;j >= 1;j --) {
+            for(int k = p;k >= 1; k--) {
+                if(dp[i][j][k] == 0) continue;
+                int tol = i*j+i*k+j*k;
+                double tmp = 1.0*i*j/tol;
+                dp[i][j-1][k] += dp[i][j][k]*tmp;
+                tmp = 1.0*i*k/tol;
+                dp[i-1][j][k] += dp[i][j][k]*tmp;
+                tmp = 1.0*j*k/tol;
+                dp[i][j][k-1] += dp[i][j][k]*tmp;
+            }
+        }
+    }
+    double res = 0;
+    for(int i = 1;i <= r; i++) 
+        for(int j = 0;j <= s; j++)
+            res += dp[i][j][0];
+    printf("%.5f", res);
+    res = 0;
+    for(int i = 1;i <= s; i++)
+        for(int j = 0;j <= p; j++)
+            res += dp[0][i][j];
+    printf(" %.5f", res);
+    res = 0;
+    for(int i = 1;i <= p; i++)
+        for(int j = 0;j <= r; j++)
+            res += dp[j][0][i];
+    printf(" %.5f", res);
+    return 0;
+}
